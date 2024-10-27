@@ -1,0 +1,186 @@
+/* 전체 다크 테마 기반 배경 설정 */
+@font-face {
+    font-family: 'OG_Renaissance_Secret-Rg';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/OG_Renaissance_Secret-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'OG_Renaissance_Secret-Rg', sans-serif;
+    background-color: #0d0d17; /* 기본 배경색 */
+    background-image: url('./magic_img.png'); /* magic_img를 배경 이미지로 설정 */
+    background-size: cover; /* 배경 이미지가 화면을 꽉 채우도록 설정 */
+    background-position: center; /* 이미지를 가운데 정렬 */
+    background-repeat: no-repeat; /* 배경 이미지 반복 안함 */
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* 컨테이너 스타일, 크기 확장 및 더 강력한 시각적 효과 */
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+    flex-direction: column;
+    background: linear-gradient(145deg, #1a1a2eeb, #0d0d17e0);;
+    border-radius: 20px;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    width: 90vw;
+    height: 60vh;
+    border: 2px solid #ff6f91;
+    animation: fadeIn 1.5s ease-out forwards, glow 3s ease-in-out infinite;
+}
+
+/* 타이틀에 강력한 글로우 효과 */
+h1 {
+    font-size: 36px;
+    color: #ff6f91;
+    text-shadow: 0 0 20px rgba(255, 111, 145, 1), 0 0 30px rgba(255, 111, 145, 0.8);
+    animation: pulseText 3s ease-in-out infinite;
+    margin-top: 5vh;
+    margin-bottom: 7vh;
+}
+
+.q_container {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    margin-top: 3vh;
+}
+.question-box {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    width: 90vw;
+}
+
+/* 질문 입력 필드 */
+.question-box input {
+    padding: 15px;
+    width: 80%;
+    border: none;
+    border-radius: 10px;
+    background-color: #222233;
+    color: #f2f2f2;
+    font-size: 18px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.question-box input:focus {
+    box-shadow: 0 0 15px #ff6f91, 0 0 25px rgba(255, 111, 145, 0.7);
+}
+
+/* 버튼에 입체적 효과와 상호작용 애니메이션 */
+.question-box button {
+    padding: 15px 30px;
+    background: linear-gradient(145deg, #ff4973, #ff6f91);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 3vh;
+    font-family: 'OG_Renaissance_Secret-Rg', sans-serif;
+    width: 88%;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(255, 111, 145, 0.4), 0 0 15px rgba(255, 111, 145, 0.8);
+}
+
+.question-box button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(145deg, #ff6f91, #ff4973);
+    box-shadow: 0 15px 30px rgba(255, 111, 145, 0.6), 0 0 20px rgba(255, 111, 145, 1);
+}
+
+/* 답변 박스의 애니메이션 효과 */
+.answer-box {
+    width: 80%;
+    margin-top: 2vh;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff6f91;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #ff6f91;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.8s ease;
+    transform: translateY(20px);
+}
+
+/* 답변 박스가 나타날 때의 효과 */
+.answer-box.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* 반딧불이 애니메이션 */
+.firefly-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.firefly {
+    position: absolute;
+    background-color: #ff6f91;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255, 111, 145, 0.8);
+    animation: fly 8s infinite ease-in-out;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(calc(100vw - 50px)) translateY(calc(100vh - 50px));
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 하이라이트 글로우 효과 */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 30px rgba(255, 111, 145, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 60px rgba(255, 111, 145, 1);
+    }
+}
+
+/* 글자에 맥동하는 애니메이션 효과 */
+@keyframes pulseText {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 111, 145, 0.7), 0 0 20px rgba(255, 111, 145, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 30px rgba(255, 111, 145, 1), 0 0 40px rgba(255, 111, 145, 0.8);
+    }
+}
