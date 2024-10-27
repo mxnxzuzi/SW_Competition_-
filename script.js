@@ -2,7 +2,7 @@ async function getAnswer() {
     const userQuestion = document.getElementById("userQuestion").value;
 
     try {
-        let response = await fetch('https://671e6a3d6e4d609568ddc03e--dapper-puppy-530506.netlify.app/get_answer', {
+        let response = await fetch('https://dapper-puppy-530506.netlify.app/get_answer', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
