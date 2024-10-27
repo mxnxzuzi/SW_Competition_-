@@ -33,9 +33,12 @@ exports.handler = async function(event, context) {
         // 전체 응답을 콘솔에 출력하여 디버깅
         console.log("API 응답:", JSON.stringify(result, null, 2));
 
-        // 'candidates' 배열이 존재하고, 그 안에 요소가 있는지 확인
-        if (!result.candidates || !result.candidates[0]) {
-            throw new Error('응답에 유효한 candidates 배열이 없습니다.');
+        // SAFETY 문제 발생 시
+        if (result.candidates && result.candidates[0].finishReason === 'SAFETY') {
+            return {
+                statusCode: 200,
+                body: JSON.stringify({ answer: "안전성 문제가 발생했습니다. 다른 질문을 해주세요." })
+            };
         }
 
         // 'content' 하위의 'text' 필드에 안전하게 접근
