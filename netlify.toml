@@ -1,4 +1,5 @@
 [[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
+  from = "/get_answer"
+  to = "https://romance-magic-conch.netlify.app/get_answer"
+  status = 200
+  force = true
